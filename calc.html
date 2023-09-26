@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="https://kit.fontawesome.com/971bc65c0e.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Calculator</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/piggybank.png" />
+        <!-- Custom Google font-->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="cssIRNW/styles.css" rel="stylesheet" />
+    </head>
+    <body class="d-flex flex-column h-100 bg-light">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="indexIRNW.html"><span class="fw-bolder text-primary">I'm Rich, Now What?</span></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+                            <li class="nav-item"><a class="nav-link" href="indexIRNW.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="calc.html">Calculator</a></li>
+                            <!-- <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Page Content-->
+            <div class="container px-5 my-5">
+                <div class="text-center mb-5">
+                    <h1 class="display-5 fw-bolder mb-0 text-smallish"><span class="text-gradient d-inline ">Let's Get Started</span></h1>
+                    <br>
+                    <h3 class="fw-light text-muted text-much-much-smaller">Whether it's <strong>Graduation Money</strong>, <strong>Work Bonus</strong>, <strong>Comission Check</strong>, <strong>Will Payout</strong>, or something else, this calculator will tell you what to do with your new cash. </h3>
+                </div>
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-11 col-xl-9 col-xxl-8">
+                        <div class="container mt-5">
+                            <div class="row d-flex justify-content-center align-items-center">
+                                <div class="col-md-12">
+                                    <div class="card shadow border-0 rounded-4 mb-5">
+                                        <div class="card-body p-5">
+                                            <div class="row align-items-center gx-5">
+                                                <div class="col text-center text-lg-start mb-4 mb-lg-0">
+                                                    <h2 class=" text-center display-6 mb-0  text-primary text-smallish"><span class="d-inline" id="register">The Cash Calculator</h2>
+
+                                                    <div class="input-group">
+
+
+
+                                                        <form id="regForm">
+                                                            
+            
+                                                            <div class="all-steps" id="all-steps"> 
+                                                            <span class="step icon-smaller" ><i class="fa fa-money icon-smaller "></i></span> 
+                                                            <span class="step icon-smaller"><i class="fa fa-credit-card icon-smaller"></i></span>
+                                                            <span class="step icon-smaller"><i class="fa fa-person-digging icon-smaller"></i></span>
+                                                            <span class="step icon-smaller"><i class="fa fa-house icon-smaller"></i></span>
+                                                            <span class="step icon-smaller"><i class="fa fa-umbrella icon-smaller"></i></span>
+                                                            <span class="step icon-smaller"><i class="fa fa-money-bill-trend-up icon-smaller"></i></span>                                                   
+                                                            </div>
+                                            
+                                                            <div class="tab">
+                                                                <h4 class="text-smaller">Initial Cash Amount</h4>
+                                                                <p class="text-muted text-much-smaller">How much money are you wanting to enter into this calculator? Please keep the amount between $100 and $100 million.</p>
+                                                                <p class="text-much-smaller"><input placeholder="$ Initial Amount" oninput="clearError(this)" onblur="validateInput(this)" name="amt"></p>
+                                                            </div>
+                                                            
+                                                            <script>
+                                                                function validateInput(input) {
+                                                                    console.log(input.value)
+                                                                    const enteredValue = parseFloat(input.value.replace(/,/g, ''));
+
+
+                                                                    console.log(enteredValue)
+                                                                    if (isNaN(enteredValue)) {
+                                                                        // Display an error message for non-numeric input
+                                                                        alert("Please enter a valid numeric value.");
+                                                                        input.value = ''; // Clear the input field
+                                                                    } else if (enteredValue < 100 || enteredValue > 100000000) {
+                                                                        // Display an error message for out-of-range values
+                                                                        alert("Please enter an amount between $100 and $100 million.");
+                                                                        input.value = ''; // Clear the input field
+                                                                    }
+                                                                }
+                                                            
+                                                                function clearError(input) {
+                                                                    // Clear the error message and reset the class on input
+                                                                    input.className = '';
+                                                                }
+                                                            </script>
+                                                            
+                                                            <div class="tab">
+                                                                <h4 class="text-smaller">Credit Card Debt</h4>
+                                                                <p class="text-muted text-much-smaller">How much <strong>Credit Card Debt</strong> do you have? Credit Card Debt is money you owe from using a credit card that's not paid off yet.</p>
+                                                                <p class="text-much-smaller"><input placeholder="$ Credit Card Debt" onblur="validateNumberInput(this, 'ccDebt')"  name="ccDebt"></p>
+                                                            </div>
+                                                            
+                                                            
+                                                            <div class="tab">
+                                                                <h4 class="text-smaller">Other High Interest Debt</h4>
+                                                                <p class="text-muted text-much-smaller">Do you have any other <strong>high interest debt</strong> aside from credit card debt? We consider any loan above a 10% APR as "High Interest Debt". Other high interest debts might include Payday Loans, Personal Loans, Auto Title Loans, etc... Please enter a specific amount.</p>
+                                                                <p class="text-much-smaller"><input placeholder="$ Other high interest debt" onblur="validateNumberInput(this, 'otherDebt')" name="otherDebt"></p>
+                                                            </div>
+                                                            
+                                                            <div class="tab">
+                                                                <h4 class="text-smaller">Montly Household Spend</h4>
+                                                                <p class="text-muted text-much-smaller">About how much does your household spend a month? This doesn't have to be exact. </p>
+                                                                <p class="text-much-smaller"><input placeholder="$ Monthly Household Spend" onblur="validateNumberInput(this, 'monthSpend')" name="monthSpend"></p>
+                                                            </div>
+
+                                                            <div class="tab">
+                                                                <h4 class="text-smaller">Emergency Fund</h4>
+                                                                <p class="text-muted text-much-smaller">How much do you have set aside as an emergecy fund?  </p>
+                                                                <p class="text-muted2 text-much-smaller">An <strong>Emergency Fund</strong> is a pool of money set aside to help you cover unexpected or urgent expenses that might come up in your life. It acts like a safety net to provide financial security when unexpected events occur, such as medical emergencies, car repairs, job loss, or other unforeseen situations. </p>
+                                                                <p class="text-much-smaller"><input placeholder="$ Current Emergency Fund Amount" onblur="validateNumberInput(this, 'emrgFund')" name="emrgFund"></p>
+                                                            </div>
+                                            
+                                                            <div class="tab">
+                                                                <h4 class="text-smaller">Roth IRA</h4>
+                                                                <p class="text-muted text-much-smaller">How much have you contributed to your <strong>Roth IRA</strong> this year? This amount cannot be over $6,500 as that is the highest amount that you can contribute annually.</p>
+                                                                <p class="text-much-smaller"><input placeholder="$ Current RothIRA Contribution" onblur="validateRothIRA(this)" name="rothIRA"></p>
+                                                            </div>
+                                                            
+                                                            <script>
+                                                             
+                                                                function validateNumberInput(input, fieldName) {
+                                                                    const enteredValue = parseFloat(input.value);
+                                                                    if (isNaN(enteredValue)) {
+                                                                        // Display an error message for non-numeric input
+                                                                        alert(`Please enter a valid numeric value for ${fieldName}.`);
+                                                                        input.value = ''; // Clear the input field
+                                                                    }
+                                                                }
+
+                                                            
+                                                                function validateRothIRA(input) {
+                                                                    const enteredValue = parseFloat(input.value);
+                                                                    if (isNaN(enteredValue) || enteredValue < 0 || enteredValue > 6500) {
+                                                                        // Display an error message for invalid values
+                                                                        alert("Please enter a valid contribution amount for Roth IRA between 0 and $6,500.");
+                                                                        input.value = ''; // Clear the input field
+                                                                    }
+                                                                }
+                                                            </script>
+                                                            
+                                                            <!-- RESULTS!!! -->
+                                                            <div class="thanks-message text-center" id="text-message">
+                                                                <br>
+                                                                <h3>Initial Amount: </h3>
+                                                                <h1 class="display-5 fw-bolder mb-0 text-gradient d-inline">$<span class="text-gradient d-inline" id="amtCell"></span></h1>
+                                                                <br>
+
+                                                                <div class="row mt-4">
+                                                                    <div class="col-md-3">
+                                                                        <img src="assets/creditcards.png" class="img-fluid img-responsive" alt="creditcards">
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <h3>Use <strong>$<span id="ccDebtPAYCell"></span></strong> to pay off your Credit Card Debt</h3>
+                                                                        <p class="text-muted">Do this today! Credit card debit is some of the worst debt you can have because of their extremely high APR. Now that you have the money, pay it off!</p>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <div class="row mt-4">
+                                                                    <div class="col-md-3">
+                                                                        <img src="assets/shovel.png" class="img-fluid img-responsive" alt="Shovel">
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <h3>Use <strong>$<span id="otherDebtPAYCell"></span></strong> to pay off any other High Interst Debt of 10% APR or higher</h3>
+                                                                        <p class="text-muted">Get yourself out of the hole of debt. By putting money towards your high interest debt, compounding interest will stop being your enemy and become your best friend.</p>
+                                                                    </div>
+                                                            
+                                                                </div>
+                                                                
+                                                                <div class="row mt-4">
+                                                                    <div class="col-md-3">
+                                                                        <img src="assets/umbrella.png" class="img-fluid img-responsive" alt="Umbrella">
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <h3>Use <strong>$<span id="emrgFundPAYCell"></span></strong> to put towards your Emergency Fund</h3>
+                                                                        <p class="text-muted">Place money in a high-yield savings account. Keep it untouched unless truly necessary. The emergency fund is a safety net for unexpected events like medical issues, job loss, or car repairs. It avoids relying on loans and provides stability during tough times.</p>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                                
+                                                                <div class="row mt-4">
+                                                                    <div class="col-md-3">
+                                                                        <img src="assets/piggybank.png" class="img-fluid img-responsive" alt="Piggybank">
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <h3>Use <strong>$<span id="rothIRAPAYCell"></span></strong> to put into a Roth IRA</h3>
+                                                                        <p class="text-muted">Contributing to a Roth IRA is important because it allows you to save money for retirement in a tax-efficient way. The contributions you make are with after-tax dollars, so when you take it out later, it's usually tax-free. This saves taxes and gives more retirement money.</p>
+                                                                    </div>
+                                                                </div>
+                                                                <br>
+
+                                                                <h4>Remaining balance for other Investments:</h4>
+                                                                <h2 class="display-5 fw-bolder mb-0 text-gradient d-inline">$<span class="text-gradient d-inline" id="updatedAmtValue"></span></h2>
+                                                                <br>
+                                                                <br>
+                                                                <p>I follow the 40-40-20 investment strategy. This means I recommend investing 40% in low risk investments, 40% in medium risk investments, and use the last 20% for high risk investments.</p>
+                                                                <br>
+                                                                <div class="row mt-4">
+                                                                    <div class="col-md-3">
+                                                                        <img src="assets/green40.png" class="img-fluid img-responsive" alt="green40">
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <h3>Low Risk Investments: <strong>$<span id="lowInvestment"></span></strong></h3>
+                                                                        <p class="text-muted">You should shoot for a 5%-8% return on investment. The goal of this investment is to cover for inflation.</p>
+                                                                        <p>High-Yield Savings Account</p>
+                                                                        <p>Bonds</p>
+                                                                        <p>Treasury bills</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row mt-4">
+                                                                    <div class="col-md-3">
+                                                                        <img src="assets/orange40.png" class="img-fluid img-responsive" alt="orange40">
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <h3>Medium Risk Investments: <strong>$<span id="medInvestment"></span></strong></h3>
+                                                                        <p class="text-muted">The goal of the medium risk investments is a 10%-30% return on investment.</p>
+                                                                    
+
+                                                                        <p>Index Funds</p>
+                                                                        <p>Stock Market</p>
+                                                                        <p>Mutual Funds</p>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row mt-4">
+                                                                    <div class="col-md-3">
+                                                                        <img src="assets/red20.png" class="img-fluid img-responsive" alt="red20">
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <h3>High Risk Investments: <strong>$<span id="highInvestment"></span></strong></h3>
+                                                                        <p class="text-muted">The last 20% of your investment money CAN go towards riskier investments (you don't have to if you want to be more risk adverse). These are the investments that can lead to 2-10X of return. Go for the Grand Slam. However, never invest money here that you cannot live with out. Also, never go in on only one high risk investment. </p>
+                                                                        <p>Real Estate</p>
+                                                                        <p>Venture Capital</p>
+                                                                        <p>Cryptocurrency</p>
+                                                                    </div>
+                                                                </div>
+                                                                <br>
+                                                                <br>
+                                                                <br>
+
+                                                                <p>REMEMBER! I am not a financial advisor by any means. This is just my take on smart finance. Please don't sue me if you lose money in investments. Much appreciated.</p>
+                                                                
+                                                                <div style="float:left;">
+                                                                    <button type="button" id="restartBtn"><i class="fa fa-angle-double-left text-smaller"></i></button>
+                                                                </div>
+                                                                
+                                                                <script>
+                                                                    document.getElementById("restartBtn").addEventListener("click", function() {
+                                                                        window.location.href = "calc.html"; // Set the URL to "calc.html"
+                                                                    });
+                                                                </script>
+                                                            
+                                                            </div>
+
+                           
+
+
+                                                            <script>
+                                                                const userInput = {
+                                                                  amt: 0,
+                                                                  ccDebt: 0,
+                                                                  otherDebt: 0,
+                                                                  monthSpend: 0,
+                                                                  emrgFund: 0,
+                                                                  rothIRA: 0,
+                                                                  ccDebtPAY: 0,
+                                                                  otherDebtPAY: 0,
+                                                                  emrgFundPAY: 0,
+                                                                  emrgFundValue: 0,
+                                                                  rothIRAPAY: 0,
+                                                                  rothIRAValue: 0,
+                                                                };
+                                                                
+                                                                const amt = document.querySelector('input[name="amt"]');
+                                                                const ccDebt = document.querySelector('input[name="ccDebt"]');
+                                                                const otherDebt = document.querySelector('input[name="otherDebt"]');
+                                                                const monthSpend = document.querySelector('input[name="monthSpend"]');
+                                                                const emrgFund = document.querySelector('input[name="emrgFund"]');
+                                                                const rothIRA = document.querySelector('input[name="rothIRA"]');
+                                                                
+                                                                const amtCell = document.getElementById('amtCell');
+                                                                const ccDebtCell = document.getElementById('ccDebtCell');
+                                                                const otherDebtCell = document.getElementById('otherDebtCell');
+                                                                const monthSpendCell = document.getElementById('monthSpendCell');
+                                                                const emrgFundCell = document.getElementById('emrgFundCell');
+                                                                const rothIRACell = document.getElementById('rothIRACell');
+                                                                
+                                                                amt.addEventListener('input', function () {
+                                                                    const enteredValue = parseFloat(amt.value.replace(/,/g, '')) || 0;
+
+                                                                    // Update userInput.amt with the parsed value
+                                                                    userInput.amt = enteredValue;
+                                                                    amtCell.textContent = enteredValue.toLocaleString('en-US'); // Display with two decimal places
+
+                                                                });
+                                                                
+                                                                ccDebt.addEventListener('blur', function () {
+                                                                  handleBlur(ccDebt, 'ccDebt'); 
+                                                                  const enteredValue = parseFloat(ccDebt.value.replace(/,/g, '')) || 0;
+
+                                                                    // Update userInput.amt with the parsed value
+                                                                  userInput.ccDebt = enteredValue;
+                                                                  //ccDebtCell.textContent = userInput.ccDebt.toFixed(0); // Display with two decimal places
+                                                                  calculateCCDebtPAY();
+                                                                });
+                                                                
+                                                                otherDebt.addEventListener('blur', function () {
+                                                                  handleBlur(otherDebt, 'otherDebt');
+                                                                  const enteredValue = parseFloat(otherDebt.value.replace(/,/g, '')) || 0;
+
+                                                                  userInput.otherDebt = enteredValue;
+                                                                  //otherDebtCell.textContent = userInput.otherDebt.toFixed(0); // Display with two decimal places
+                                                                  calculateOtherDebtPAY();
+                                                                });
+                                                                
+                                                                monthSpend.addEventListener('blur', function () {
+                                                                  handleBlur(monthSpend, 'monthSpend');
+                                                                  const enteredValue = parseFloat(monthSpend.value.replace(/,/g, '')) || 0;
+
+                                                                  userInput.monthSpend = enteredValue;
+                                                                  //monthSpendCell.textContent = userInput.monthSpend.toFixed(0); // Display with two decimal places
+                                                                });
+                                                                
+                                                                emrgFund.addEventListener('blur', function () {
+                                                                  handleBlur(emrgFund, 'emrgFund');  
+                                                                  const enteredValue = parseFloat(emrgFund.value.replace(/,/g, '')) || 0;
+
+                                                                  userInput.emrgFund = enteredValue;
+                                                                  //emrgFundCell.textContent = userInput.emrgFund.toFixed(0); // Display with two decimal places
+                                                                  calculateEmrgFundPAY();
+                                                                });
+                                                                
+                                                                rothIRA.addEventListener('blur', function () {
+                                                                  handleBlur(rothIRA, 'rothIRA');
+                                                                  const enteredValue = parseFloat(rothIRA.value.replace(/,/g, '')) || 0;
+
+                                                                  userInput.rothIRA = enteredValue;
+                                                                  //rothIRACell.textContent = userInput.rothIRA.toFixed(0); // Display with two decimal places
+                                                                  calculateRothIRAPAY();
+                                                                  calculateLowInvestment();
+                                                                  calculateMediumInvestment();
+                                                                  calculateHighInvestment();
+
+                                                                });
+
+                                                                // Function to calculate ccDebtPAY and update amt
+                                                                function calculateCCDebtPAY() {
+
+                                                                    if (userInput.ccDebt <= userInput.amt) {
+                                                                        userInput.ccDebtPAY = userInput.ccDebt;
+                                                                        userInput.amt = userInput.amt - userInput.ccDebtPAY;
+                                                                    } else {
+                                                                        userInput.ccDebtPAY = userInput.amt;
+                                                                        userInput.amt = 0;
+                                                                    }
+
+                                                                    // Update the ccDebtPAY display
+                                                                    ccDebtPAYCell.textContent = userInput.ccDebtPAY.toLocaleString('en-US');
+
+                                                                    // Update the updatedAmtValue Display
+                                                                    updatedAmtValue.textContent = userInput.amt.toFixed(0);
+                                                                }
+
+                                                                // Function to calculate otherDebtPAY and update amt
+                                                                function calculateOtherDebtPAY() {
+                                                                    if(userInput.otherDebt <= userInput.amt) {
+                                                                        userInput.otherDebtPAY = userInput.otherDebt;
+                                                                        userInput.amt = userInput.amt - userInput.otherDebtPAY;
+                                                                    } else {
+                                                                        userInput.otherDebtPAY = userInput.amt;
+                                                                        userInput.amt = 0;
+                                                                    }
+
+                                                                    // Update the otherDebtPAY display
+                                                                    otherDebtPAYCell.textContent = userInput.otherDebtPAY.toLocaleString('en-US');
+
+                                                                    // Update the updatedAmtValue Display
+                                                                    updatedAmtValue.textContent = userInput.amt.toFixed(0);
+                                                                }
+
+                                                                //Function to calculate emrgFundPAY and update amt
+                                                                function calculateEmrgFundPAY() {
+                                                                    const emrgFundValue = userInput.monthSpend * 3 - userInput.emrgFund;
+
+                                                                    console.log(emrgFundValue)
+
+                                                                    if (emrgFundValue <= userInput.amt) {
+                                                                        if (emrgFundValue < 0) {
+                                                                            userInput.emrgFundPAY = 0;
+                                                                        } else {
+                                                                            userInput.emrgFundPAY = emrgFundValue;
+                                                                        }
+                                                                        userInput.amt = userInput.amt - userInput.emrgFundPAY;
+                                                                    }
+                                                                    else {
+                                                                        userInput.emrgFundPAY = userInput.amt;
+                                                                        userInput.amt = 0;
+                                                                    }
+
+                                                                    // Update the emrgFundPAY display
+                                                                    emrgFundPAYCell.textContent = userInput.emrgFundPAY.toLocaleString('en-US');
+
+                                                                    // Update the updatedAmtValue Display
+                                                                    updatedAmtValue.textContent = userInput.amt.toFixed(0);
+                                                                }
+
+                                                                //Function to calculate rothIRAPAY and update amt
+                                                                function calculateRothIRAPAY(){
+                                                                    const rothIRAValue = 6500 - userInput.rothIRA;
+
+                                                                    console.log(rothIRAValue)
+
+
+                                                                    if(rothIRAValue <= userInput.amt){
+                                                                        if(rothIRAValue < 0) {
+                                                                            userInput.rothIRAPAY = 0;
+                                                                        } else {
+                                                                            userInput.rothIRAPAY = rothIRAValue;
+                                                                        }
+                                                                        userInput.amt = userInput.amt - userInput.rothIRAPAY;
+                                                                    } else {
+                                                                        userInput.rothIRAPAY = userInput.amt;
+                                                                        userInput.amt = 0;
+                                                                    }
+
+                                                                    // Update the emrgFundPAY display
+                                                                    rothIRAPAYCell.textContent = userInput.rothIRAPAY.toLocaleString('en-US');
+
+                                                                    // Update the updatedAmtValue Display
+                                                                    updatedAmtValue.textContent = userInput.amt.toLocaleString('en-US');
+                                                                }
+
+                                                                function calculateLowInvestment() {
+                                                                    const lowInvestmentValue = userInput.amt * 0.4;
+                                                                    const lowInvestmentCell = document.getElementById('lowInvestment');
+                                                                    if (lowInvestmentCell) {
+                                                                        lowInvestmentCell.textContent = lowInvestmentValue.toLocaleString('en-US');
+                                                                    }
+                                                                }
+
+                                                                function calculateMediumInvestment() {
+                                                                    const medInvestmentValue = userInput.amt * 0.4;
+                                                                    const medInvestmentCell = document.getElementById('medInvestment');
+                                                                    if (medInvestmentCell) {
+                                                                        medInvestmentCell.textContent = medInvestmentValue.toLocaleString('en-US');
+                                                                    }
+                                                                }
+
+                                                                function calculateHighInvestment() {
+                                                                    const highInvestmentValue = userInput.amt * 0.2;
+                                                                    const highInvestmentCell = document.getElementById('highInvestment');
+                                                                    if (highInvestmentCell) {
+                                                                        highInvestmentCell.textContent = highInvestmentValue.toLocaleString('en-US');
+                                                                    }
+                                                                }
+
+                                                                
+                                                                
+
+
+
+
+
+
+
+
+
+
+
+                                                                function handleBlur(input, fieldName) {
+                                                                    userInput[fieldName] = parseFloat(input.value) || 0;
+                                                                    const cellId = fieldName + 'Cell';
+                                                                    const cell = document.getElementById(cellId);
+                                                                    if (cell) {
+                                                                        cell.textContent = userInput[fieldName].toFixed(0);
+                                                                    }
+                                                                    // Add any additional calculations or updates related to the field here
+                                                                }
+
+
+
+
+
+
+
+                                                            </script>
+                                                            <br>
+                                                            <div style="overflow:auto;" id="nextprevious">
+                                                                <div style="float:right;">
+                                                                <button type="button" id="prevBtn" onclick="nextPrev(-1)"><i class="fa fa-angle-double-left text-smaller"></i></button> 
+                                                                <button type="button" id="nextBtn" onclick="nextPrev(1)"><i class="fa fa-angle-double-right text-smaller"></i></button> </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                  
+                            
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Footer-->
+        <!-- <footer class="bg-white py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0">Copyright &copy; Your Website 2023</div></div>
+                    <div class="col-auto">
+                        <a class="small" href="#!">Privacy</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="#!">Terms</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="#!">Contact</a>
+                    </div>
+                </div>
+            </div> -->
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"></script>
+
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="jsIRNW/scripts.js"></script>
+    </body>
+</html>
